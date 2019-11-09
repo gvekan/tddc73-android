@@ -1,4 +1,4 @@
-package com.example.tdddc73kotlinlab1
+package com.example.tddc73kotlinlab1
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

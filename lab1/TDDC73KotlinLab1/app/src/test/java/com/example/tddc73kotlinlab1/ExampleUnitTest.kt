@@ -1,4 +1,4 @@
-package com.example.tdddc73kotlinlab1
+package com.example.tddc73kotlinlab1
 
 import org.junit.Test
 

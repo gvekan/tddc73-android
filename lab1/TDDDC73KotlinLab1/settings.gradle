@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name='TDDDC73 Kotlin Lab 1'
