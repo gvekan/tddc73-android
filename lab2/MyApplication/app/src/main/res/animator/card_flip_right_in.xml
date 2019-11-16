@@ -12,7 +12,6 @@
         android:valueFrom="180"
         android:valueTo="0"
         android:propertyName="rotationY"
-        android:interpolator="@android:interpolator/accelerate_decelerate"
         android:duration="@integer/card_flip_time_full" />
 
     <!-- Half-way through the rotation (see startOffset), set the alpha to 1. -->

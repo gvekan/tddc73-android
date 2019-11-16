@@ -3,4 +3,8 @@
     <string name="image_description_card">Credit Card</string>
     <string name="image_description_chip">Chip</string>
     <string name="image_description_logo">Bank logo</string>
+    <string name="label_et_number">Card Number</string>
+    <string name="label_et_name">Card Name</string>
+    <string name="label_et_cvv">CVV</string>
+    <string name="label_button_submit">Submit</string>
 </resources>
