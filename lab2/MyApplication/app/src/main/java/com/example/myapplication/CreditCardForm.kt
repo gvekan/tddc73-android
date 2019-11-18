@@ -5,7 +5,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.TextView
 
 class CreditCardForm : FrameLayout {
     constructor(context: Context) : super(context) {
@@ -34,7 +36,10 @@ class CreditCardForm : FrameLayout {
     }
 
     private fun init(context: Context) {
-        LayoutInflater.from(context).inflate(R.layout.credit_card_form, this, true)
+        val view = LayoutInflater.from(context).inflate(R.layout.credit_card_form, this, true)
+        view.findViewById<TextView>(R.id.tv_number).setText("1234     ####     ####     ####")
+        //val etNumber = view.findViewById<EditText>(R.id.et_number)
+        //val etCvv = view.findViewById<EditText>(R.id.et_cvv)
     }
 }
 

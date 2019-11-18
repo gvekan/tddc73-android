@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -11,24 +11,86 @@
         android:contentDescription="@string/image_description_card"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/card"  />
+        app:srcCompat="@drawable/card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <TextView
+        android:id="@+id/tv_number"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:text="@string/placeholder_tv_number"
+        android:textColor="#ffffff"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.14"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Front"
-            android:textColor="#ffffff"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/label_tv_name"
+        android:textColor="#dddddd"
+        android:gravity="bottom"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintEnd_toEndOf="@id/tv_name"
+        app:layout_constraintBottom_toTopOf="@id/tv_name"
+        app:layout_constraintStart_toStartOf="@id/tv_name"/>
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/placeholder_tv_name"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textColor="#ffffff"
+        android:layout_margin="16dp"
+        android:gravity="bottom"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.65"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/label_tv_expires"
+        android:textColor="#dddddd"
+        android:gravity="bottom"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintBottom_toTopOf="@id/tv_expires"
+        app:layout_constraintEnd_toEndOf="@id/tv_expires"
+        app:layout_constraintStart_toStartOf="@id/tv_expires" />
+    <TextView
+        android:id="@+id/tv_expires"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/placeholder_tv_expires"
+        android:textColor="#ffffff"
+        android:layout_margin="16dp"
+        android:gravity="bottom"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_name"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

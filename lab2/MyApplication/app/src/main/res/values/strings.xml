@@ -7,4 +7,9 @@
     <string name="label_et_name">Card Name</string>
     <string name="label_et_cvv">CVV</string>
     <string name="label_button_submit">Submit</string>
+    <string name="label_tv_name">Card Holder</string>
+    <string name="label_tv_expires">Expires</string>
+    <string name="placeholder_tv_number">####\ \ \ \ \ ####\ \ \ \ \ ####\ \ \ \ \ ####</string>
+    <string name="placeholder_tv_name">Full Name</string>
+    <string name="placeholder_tv_expires">MM/YY</string>
 </resources>
