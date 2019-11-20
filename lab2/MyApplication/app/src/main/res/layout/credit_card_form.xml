@@ -14,17 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/card"
-        app:layout_constraintTop_toTopOf="@id/card"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/card" />
 
     <FrameLayout
         android:id="@+id/padding"
         android:layout_width="match_parent"
         android:layout_height="16dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_submit"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_submit" />
 
 
     <!-- Form -->
@@ -34,84 +34,106 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/form_background"
-        app:layout_constraintTop_toBottomOf="@id/guide"
         app:layout_constraintBottom_toBottomOf="@id/padding"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/guide">
+
+    </FrameLayout>
 
     <!-- Form: Card Number -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:labelFor="@id/et_number"
         android:text="@string/label_et_number"
         app:layout_constraintBottom_toTopOf="@id/et_number"
-        app:layout_constraintStart_toStartOf="@id/et_number"
-        android:labelFor="@id/et_number"/>
+        app:layout_constraintStart_toStartOf="@id/et_number" />
+
     <EditText
         android:id="@+id/et_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:inputType="number"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@id/card"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="40dp"/>
+        android:maxLength="16"
+        app:layout_constraintTop_toBottomOf="@id/card" />
 
-    <!-- Form: Card Number -->
+    <!-- Form: Card Name -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:labelFor="@id/et_name"
         android:text="@string/label_et_name"
         app:layout_constraintBottom_toTopOf="@id/et_name"
-        app:layout_constraintStart_toStartOf="@id/et_name"
-        android:labelFor="@id/et_name"/>
+        app:layout_constraintStart_toStartOf="@id/et_name" />
+
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:inputType="textPersonName"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@id/et_number"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="24dp" />
+        app:layout_constraintTop_toBottomOf="@id/et_number" />
 
-    <!-- Form: Card Number -->
+    <!-- Form Expires -->
+
+    <Spinner
+        android:id="@+id/spinner_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/et_cvv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_name"/>
+
+    <!-- Form: CVV -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_et_cvv"
+        android:labelFor="@id/et_cvv"
+        android:text="@string/label_cvv"
         app:layout_constraintBottom_toTopOf="@id/et_cvv"
-        app:layout_constraintStart_toStartOf="@id/et_cvv"
-        android:labelFor="@id/et_cvv"/>
+        app:layout_constraintStart_toStartOf="@id/et_cvv" />
+
     <EditText
         android:id="@+id/et_cvv"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:inputType="number"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@id/et_name"
-        android:layout_marginStart="16dp"
+        android:maxLength="4"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="24dp" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/spinner_month"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/spinner_month"
+        app:layout_constraintVertical_weight="1" />
 
 
     <Button
         android:id="@+id/button_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:textAllCaps="false"
-        android:text="@string/label_button_submit"
-        android:background="@drawable/button_background"
-        app:layout_constraintTop_toBottomOf="@id/et_cvv"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="24dp"/>
+        android:background="@drawable/button_background"
+        android:text="@string/label_button_submit"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        app:layout_constraintTop_toBottomOf="@id/et_cvv" />
 
 
     <!-- Credit Card -->

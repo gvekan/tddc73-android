@@ -2,10 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
 
     <ImageView
-        android:id="@+id/card_background_back"
+        android:id="@+id/card_background_front"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/image_description_card"
@@ -15,19 +17,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"  />
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image_description_card"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/chip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.15"
+        android:elevation="0.01dp"
+        android:layout_margin="16dp"/>
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image_description_card"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/visa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.22"
+        android:elevation="0.01dp"
+        android:layout_margin="16dp" />
+
     <TextView
         android:id="@+id/tv_number"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/placeholder_tv_number"
         android:textColor="#ffffff"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.14"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.9"
         android:maxLines="1"
         app:autoSizeTextType="uniform"
-        android:gravity="center"
+        android:textAlignment="textStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

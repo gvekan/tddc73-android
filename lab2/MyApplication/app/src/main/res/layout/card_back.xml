@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
 
 
     <ImageView
@@ -13,25 +15,73 @@
         android:scaleX="-1"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/card" />
+        app:srcCompat="@drawable/card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:contentDescription="@string/image_description_card"
+        app:srcCompat="@drawable/stripe"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.2"
+        android:elevation="0.01dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:textColor="#ffffff"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/cvv_background"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="@string/image_description_card"
+        app:srcCompat="@drawable/cvv_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.2"
+        android:elevation="0.01dp"
+        android:layout_margin="16dp"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/label_cvv"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.08"
+        android:textColor="#fff"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        android:textAlignment="textEnd"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/cvv_background"
+        app:layout_constraintEnd_toEndOf="@id/cvv_background"
+        app:layout_constraintStart_toStartOf="@id/cvv_background"/>
+    <TextView
+        android:id="@+id/tv_cvv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        android:textAlignment="textEnd"
+        android:textColor="#000"
+        android:layout_margin="8dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintTop_toTopOf="@id/cvv_background"
+        app:layout_constraintBottom_toBottomOf="@id/cvv_background"
+        app:layout_constraintEnd_toEndOf="@id/cvv_background"
+        app:layout_constraintStart_toStartOf="@id/cvv_background"
+        android:elevation="0.01dp"
+        />
 
 
-</FrameLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
