@@ -85,6 +85,12 @@
         app:layout_constraintTop_toBottomOf="@id/et_number" />
 
     <!-- Form Expires -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_spinner_expires"
+        app:layout_constraintBottom_toTopOf="@id/spinner_month"
+        app:layout_constraintStart_toStartOf="@id/spinner_month" />
 
     <Spinner
         android:id="@+id/spinner_month"
@@ -92,10 +98,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/et_cvv"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_year"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_name"/>
+        app:layout_constraintTop_toBottomOf="@id/et_name"
+        android:background="@drawable/edit_text_background"
+        android:spinnerMode="dropdown"
+        />
+    <Spinner
+        android:id="@+id/spinner_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/spinner_month"
+        app:layout_constraintEnd_toStartOf="@id/et_cvv"
+        app:layout_constraintTop_toTopOf="@id/spinner_month"
+        android:background="@drawable/edit_text_background"
+        android:spinnerMode="dropdown"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"/>
 
     <!-- Form: CVV -->
     <TextView
@@ -116,10 +137,9 @@
         android:maxLength="4"
         android:layout_marginEnd="16dp"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/spinner_month"
+        app:layout_constraintStart_toEndOf="@+id/spinner_year"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/spinner_month"
-        app:layout_constraintVertical_weight="1" />
+        app:layout_constraintTop_toTopOf="@id/spinner_year" />
 
 
     <Button

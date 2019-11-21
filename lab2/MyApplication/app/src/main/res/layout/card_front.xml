@@ -33,13 +33,13 @@
 
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/iv_logo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/image_description_card"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/visa"
+        android:src="@drawable/visa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_default="percent"
