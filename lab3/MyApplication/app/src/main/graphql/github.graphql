@@ -1,0 +1,42 @@
+query GetRepositories($first: Int, $query: String!, $type: SearchType!) {
+  search(first: $first, query: $query, type: $type) {
+    edges {
+      node {
+        ... on Repository {
+          name
+          owner {
+            login
+          }
+          description
+          forks {
+            totalCount
+          }
+          stargazers {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetRepository($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+    defaultBranchRef {
+      target {
+        ... on Commit {
+          history {
+            totalCount
+          }
+        }
+      }
+    }
+    description
+    licenseInfo {
+      name
+    }
+    refs(refPrefix: "refs/heads/") {
+      totalCount
+    }
+  }
+}

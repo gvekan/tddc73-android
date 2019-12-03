@@ -12,11 +12,7 @@ import com.example.myapplication.ui.main.MainFragment.OnListFragmentInteractionL
 
 import kotlinx.android.synthetic.main.fragment_item.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
- * TODO: Replace the implementation with code for your data type.
- */
+
 class MyItemRecyclerViewAdapter(
     private var mItems: List<MainViewModel.RepositoryItem>,
     private val mListener: OnListFragmentInteractionListener?
@@ -41,7 +37,14 @@ class MyItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mItems[position]
-        holder.mIdView.text = item.name
+        holder.mNameView.text = item.name
+        val nameWithOwner = "${item.name}/${item.owner}"
+        holder.mNameWithOwnerView.text = nameWithOwner
+        holder.mDescription.text = item.description
+        val forksText = "Forks ${item.forks}"
+        holder.mForksView.text = forksText
+        val starsText = "Stars ${item.stars}"
+        holder.mStarsView.text = starsText
 
         with(holder.mView) {
             tag = item
@@ -52,11 +55,14 @@ class MyItemRecyclerViewAdapter(
     override fun getItemCount(): Int = mItems.size
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        val mIdView: TextView = mView.item_number
-        val mContentView: TextView = mView.content
+        val mNameView: TextView = mView.name
+        val mNameWithOwnerView: TextView = mView.name_with_owner
+        val mDescription: TextView = mView.description
+        val mForksView: TextView = mView.forks
+        val mStarsView: TextView = mView.stars
 
         override fun toString(): String {
-            return super.toString() + " '" + mContentView.text + "'"
+            return super.toString() + " '" + mNameView.text + "'"
         }
     }
 

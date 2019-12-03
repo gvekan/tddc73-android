@@ -8,13 +8,80 @@
     tools:context=".ui.main.DetailFragment">
 
     <TextView
-        android:id="@+id/message"
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MainFragment"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        app:layout_constraintBottom_toTopOf="@id/license"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="License"
+
+        app:layout_constraintBottom_toBottomOf="@+id/license"
+        app:layout_constraintEnd_toStartOf="@+id/license"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/license" />
+
+    <TextView
+        android:id="@+id/license"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/commits"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label1"
+        app:layout_constraintTop_toBottomOf="@id/description" />
+
+    <TextView
+        android:id="@+id/label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Commits"
+
+        app:layout_constraintBottom_toBottomOf="@+id/commits"
+        app:layout_constraintEnd_toStartOf="@+id/commits"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/commits" />
+
+    <TextView
+        android:id="@+id/commits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/branches"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label2"
+        app:layout_constraintTop_toBottomOf="@+id/license" />
+
+    <TextView
+        android:id="@+id/label3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Branches"
+
+        app:layout_constraintBottom_toBottomOf="@+id/branches"
+        app:layout_constraintEnd_toStartOf="@+id/branches"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/branches" />
+
+    <TextView
+        android:id="@+id/branches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/label3"
+        app:layout_constraintTop_toBottomOf="@id/commits" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

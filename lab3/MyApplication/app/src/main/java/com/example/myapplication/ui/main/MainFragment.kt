@@ -7,9 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 
 class MainFragment : Fragment() {
@@ -19,7 +23,7 @@ class MainFragment : Fragment() {
     }
 
 
-    private var listener: OnListFragmentInteractionListener? = null
+    private var listener: MainActivity? = null
     private lateinit var myAdapter: MyItemRecyclerViewAdapter
     private lateinit var viewModel: MainViewModel
 
@@ -28,12 +32,26 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.main_fragment, container, false)
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         myAdapter = MyItemRecyclerViewAdapter(listOf(), listener)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = myAdapter
+            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
         }
+
+        val spinner = view.findViewById<Spinner>(R.id.spinner)
+        ArrayAdapter.createFromResource(
+            context,
+            R.array.languages,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+            spinner.adapter = adapter
+        }
+        spinner.onItemSelectedListener = listener
+
         return view
     }
 
@@ -49,7 +67,7 @@ class MainFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
+        if (context is MainActivity) {
             listener = context
         } else {
             throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
