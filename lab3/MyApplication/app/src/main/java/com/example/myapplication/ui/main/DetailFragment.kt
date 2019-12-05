@@ -10,6 +10,9 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.example.myapplication.R
 
+/**
+ * Used to display details about a repository.
+ */
 class DetailFragment : Fragment() {
 
     companion object {
@@ -39,6 +42,10 @@ class DetailFragment : Fragment() {
         viewModel = activity?.run {
             ViewModelProviders.of(this).get(MainViewModel::class.java)
         } ?: throw Exception("Invalid Activity")
+
+        /**
+         * Update textViews in the view when selected repository changes.
+         */
         viewModel.getRepositoryDetailOfSelected().observe(this, Observer { repositoryDetailOfSelected ->
             if (repositoryDetailOfSelected != null) {
                 mDescriptionView.text = repositoryDetailOfSelected.description

@@ -12,6 +12,10 @@ import type.SearchType
 import java.lang.Exception
 import java.util.concurrent.TimeUnit
 
+
+/**
+ * Used to do specific data fetches with GraphQL from GitHub.
+ */
 class DataRepository {
 
     fun getMostStarredRepositories(onSuccess: (List<MainViewModel.RepositoryItem>) -> Unit, lang: String = "") {
@@ -55,7 +59,6 @@ class DataRepository {
     }
 
     fun getRepository(onSuccess: (MainViewModel.RepositoryDetail) -> Unit, owner: String, name: String) {
-
         val queryCall = GetRepositoryQuery
             .builder()
             .owner(owner)

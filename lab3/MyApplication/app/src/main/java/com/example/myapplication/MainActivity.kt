@@ -15,13 +15,17 @@ import com.example.myapplication.ui.main.DetailFragment
 import com.example.myapplication.ui.main.MainFragment
 import com.example.myapplication.ui.main.MainViewModel
 
+/**
+ * Handles navigation between MainFragment and DetailFragment.
+ * Implements logic to display a loader when necessary.
+ * Handles item clicks in list and spinner in MainFragment.
+ */
 class MainActivity : AppCompatActivity(),
     MainFragment.OnListFragmentInteractionListener,
     FragmentManager.OnBackStackChangedListener,
     AdapterView.OnItemSelectedListener {
 
     private lateinit var viewModel: MainViewModel
-    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +38,8 @@ class MainActivity : AppCompatActivity(),
         }
         changeDisplayHomeUp()
 
-        progressBar = findViewById(R.id.progress_bar)
+        // Update progress bar depending on if view model is loading.
+        val progressBar = findViewById<ProgressBar>(R.id.progress_bar)
         viewModel = ViewModelProviders.of(this)[MainViewModel::class.java]
         viewModel.getIsLoading().observe(this, Observer { isLoading ->
             if (isLoading)
@@ -44,6 +49,9 @@ class MainActivity : AppCompatActivity(),
         })
     }
 
+    /**
+     * Change to DetailFragment when item in list is selected.
+     */
     override fun onListFragmentInteraction(item: MainViewModel.RepositoryItem) {
         viewModel.select(item.owner, item.name)
         val transaction = supportFragmentManager.beginTransaction().apply {
@@ -58,6 +66,10 @@ class MainActivity : AppCompatActivity(),
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    /**
+     * Change language in view model when a language is selected.
+     * Could also be implemented in MainFragment.
+     */
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val lang = parent?.getItemAtPosition(position).toString()
         if (lang == resources.getStringArray(R.array.languages).first())
@@ -70,6 +82,9 @@ class MainActivity : AppCompatActivity(),
         changeDisplayHomeUp()
     }
 
+    /**
+     * Logic to decide if a up button should be displayed in the ActionBar.
+     */
     private fun changeDisplayHomeUp() {
         val canGoBack = supportFragmentManager.backStackEntryCount > 0
         supportActionBar?.run {

@@ -16,6 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 
+/**
+ * Used to display a list of repositories and filter options in the form of languages.
+ */
 class MainFragment : Fragment() {
 
     companion object {
@@ -33,6 +36,7 @@ class MainFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.main_fragment, container, false)
 
+        // Set up list
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         myAdapter = MyItemRecyclerViewAdapter(listOf(), listener)
         recyclerView.apply {
@@ -41,6 +45,7 @@ class MainFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
         }
 
+        // Set up language dropdown from resource
         val spinner = view.findViewById<Spinner>(R.id.spinner)
         ArrayAdapter.createFromResource(
             context,
@@ -60,6 +65,8 @@ class MainFragment : Fragment() {
         viewModel = activity?.run {
             ViewModelProviders.of(this).get(MainViewModel::class.java)
         } ?: throw Exception("Invalid Activity")
+
+        // Replace items in list when repositories in the view model changes.
         viewModel.getRepositories().observe(this, Observer { repositories ->
             myAdapter.replaceItems(repositories)
         })
@@ -80,18 +87,9 @@ class MainFragment : Fragment() {
     }
 
     /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson
-     * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
+     * Interface for listener to click on item in list.
      */
     interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
         fun onListFragmentInteraction(item: MainViewModel.RepositoryItem)
     }
 

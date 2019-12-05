@@ -12,7 +12,10 @@ import com.example.myapplication.ui.main.MainFragment.OnListFragmentInteractionL
 
 import kotlinx.android.synthetic.main.fragment_item.view.*
 
-
+/**
+ * Adapter for recycler view that displays MainViewModel.RepositoryItems.
+ * Notify listener when item is clicked.
+ */
 class MyItemRecyclerViewAdapter(
     private var mItems: List<MainViewModel.RepositoryItem>,
     private val mListener: OnListFragmentInteractionListener?
@@ -65,6 +68,7 @@ class MyItemRecyclerViewAdapter(
             return super.toString() + " '" + mNameView.text + "'"
         }
     }
+
 
     fun replaceItems(items: List<MainViewModel.RepositoryItem>) {
         mItems = items

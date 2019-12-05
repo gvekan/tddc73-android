@@ -7,17 +7,17 @@ import androidx.lifecycle.ViewModel
 import com.example.myapplication.DataRepository
 import android.os.Handler
 
+/**
+ * Used by all fragments and MainActivity that it belongs to.
+ *
+ */
 
 class MainViewModel : ViewModel() {
 
+    // Private fields
     private val dataRepository = DataRepository()
     private var language = ""
     private val repositories: MutableLiveData<List<RepositoryItem>> = MutableLiveData()
-    /*by lazy {
-        MutableLiveData<List<RepositoryItem>>().also {
-            loadRepositories()
-        }
-    }*/
     private val repositoryDetailOfSelected: MutableLiveData<RepositoryDetail> = MutableLiveData()
     private val isLoading = MutableLiveData<Boolean>().apply { value = false }
 
@@ -34,6 +34,13 @@ class MainViewModel : ViewModel() {
         return repositoryDetailOfSelected
     }
 
+    fun getIsLoading(): LiveData<Boolean> {
+        return isLoading
+    }
+
+    /**
+     * Filter dependencies on a given language.
+     */
     fun setLanguage(lang: String) {
         if (lang != language) {
             language = lang
@@ -42,16 +49,18 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun getIsLoading(): LiveData<Boolean> {
-        return isLoading
-    }
-
+    /**
+     * Select a repository to create a RepositoryDetail of and set repositoryDetailOfSelected to.
+     */
     fun select(owner: String, name: String) {
         repositoryDetailOfSelected.value = null
         loadRepositoryDetailOfSelected(owner, name)
     }
 
 
+    /**
+     * Fetch repositories.
+     */
     private fun loadRepositories() {
         isLoading.value = true
         Thread(Runnable{
@@ -64,6 +73,9 @@ class MainViewModel : ViewModel() {
         }).start()
     }
 
+    /**
+     * Fetch repositoryDetailOfSelected.
+     */
     private fun loadRepositoryDetailOfSelected(owner: String, name: String) {
         isLoading.value = true
         Thread(Runnable{
