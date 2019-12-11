@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.example.mylibrary.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemsToDisplay="3"
+        app:itemsToJump="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.example.mylibrary.RateView
+        android:id="@+id/rateView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:filledSymbol="@drawable/baseline_local_movies_24"
+        app:unfilledSymbol="@drawable/outline_local_movies_24"
+        app:editable="false"
+        app:layout_constraintTop_toBottomOf="@+id/carouselView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxRating="10"
+        app:rating="8" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:text="8/10 movie experts recommend this app."
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rateView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

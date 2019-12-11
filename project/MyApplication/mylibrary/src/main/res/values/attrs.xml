@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <declare-styleable name="RateView">
+        <attr name="maxRating" format="integer" />
+        <attr name="filledSymbol" format="reference"/>
+        <attr name="unfilledSymbol" format="reference"/>
+        <attr name="editable" format="boolean"/>
+        <attr name="rating" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="CarouselView">
+        <attr name="itemsToDisplay" format="integer" />
+        <attr name="itemsToJump" format="integer" />
+        <attr name="spaceBetweenItems" format="integer" />
+        <attr name="showRadioButtons" format="boolean"/>
+    </declare-styleable>
+</resources>
