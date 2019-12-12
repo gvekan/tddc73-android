@@ -214,6 +214,10 @@ class CarouselView : ViewGroup, CarouselViewAdapter.DataSetChangeListener {
         return mFirstDisplayItemIndex
     }
 
+    fun getMaxFristDisplayItemIndex(): Int {
+        return (mItemCount-1)-(mItemCount-1)%mItemsToJump
+    }
+
     fun setAdapter(adapter: CarouselViewAdapter) {
         mAdapter?.unregisterListener()
 
@@ -336,10 +340,6 @@ class CarouselView : ViewGroup, CarouselViewAdapter.DataSetChangeListener {
 
             hItemConstrains += mRadioButtonsHeight
 
-
-
-            Log.i("#######################", "hSize: $hSize, hItemConstrains: $hItemConstrains, hButton: $mRadioButtonsHeight")
-            Log.i("#######################", "wSize: $wSize, wItemConstrains: $wItemConstrains, hButton: $mRadioButtonsWidth")
             mRadioButtonsLeftConstraint = (wSize - paddingLeft - paddingRight - mRadioButtonsWidth)/2 + paddingLeft
         }
 
