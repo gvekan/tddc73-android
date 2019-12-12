@@ -32,7 +32,6 @@ class DataRepository {
 
         apolloClient.query(queryCall).enqueue(object: ApolloCall.Callback<GetRepositoriesQuery.Data>() {
             override fun onFailure(e: ApolloException) {
-                throw e // Should do something better with the exception
             }
 
             override fun onResponse(response: com.apollographql.apollo.api.Response<GetRepositoriesQuery.Data>) {
